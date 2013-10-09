@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<install version="2.5" type="plugin" group="system">
+	<name>Tawea plugin</name>
+	<author>Carlos M. Cámara Mora</author>
+	<creationDate>October 2013</creationDate>
+	<copyright>Copyright (C) 2013 Carlos M. Cámara Mora. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>carlos@hepta.es</authorEmail>
+	<authorUrl>www.hepta.es</authorUrl>
+	<version>2.5.0</version>
+	<description>PLG_TAWEA_XML_DESCRIPTION</description>
+	<files>
+			<filename plugin="tawea">tawea.php</filename>
+	</files>
+	<languages>
+		<language tag="en-GB">en-GB.plg_tawea.ini</language>
+		<language tag="en-GB">en-GB.plg_tawea.sys.ini</language>
+		<language tag="es-ES">es-ES.plg_tawea.ini</language>
+		<language tag="es-ES">es-ES.plg_tawea.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params" >
+			<fieldset name="basic">
+					<field name="whentoshow" type="radio" default="1" label="PLG_TAWEA_WHENTOSHOW_LBL" description="PLG_TAWEA_WHENTOSHOW_DSC">
+						<option value="1">PLG_TAWEA_ALWAYS</option>
+						<option value="2">PLG_TAWEA_ONFRONTPAGE</option>
+					</field>
+			</fieldset>
+		</fields>
+	</config>
+</install>
