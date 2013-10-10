@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<install version="2.5" type="plugin" group="system">
+<extension version="2.5" type="plugin" group="system">
 	<name>Tawea plugin</name>
 	<author>Carlos M. Cámara Mora</author>
 	<creationDate>October 2013</creationDate>
@@ -8,7 +8,7 @@
 	<authorEmail>carlos@hepta.es</authorEmail>
 	<authorUrl>www.hepta.es</authorUrl>
 	<version>2.5.0</version>
-	<description>PLG_TAWEA_XML_DESCRIPTION</description>
+	<description>PLG_SYSTEM_TAWEA_XML_DESCRIPTION</description>
 	<files>
 			<filename plugin="tawea">tawea.php</filename>
 	</files>
@@ -21,11 +21,11 @@
 	<config>
 		<fields name="params" >
 			<fieldset name="basic">
-					<field name="whentoshow" type="radio" default="1" label="PLG_TAWEA_WHENTOSHOW_LBL" description="PLG_TAWEA_WHENTOSHOW_DSC">
-						<option value="1">PLG_TAWEA_ALWAYS</option>
-						<option value="2">PLG_TAWEA_ONFRONTPAGE</option>
+					<field name="whentoshow" type="radio" default="1" label="PLG_SYSTEM_TAWEA_WHENTOSHOW_LBL" description="PLG_SYSTEM_TAWEA_WHENTOSHOW_DSC">
+						<option value="1">PLG_SYSTEM_TAWEA_ALWAYS</option>
+						<option value="2">PLG_SYSTEM_TAWEA_ONFRONTPAGE</option>
 					</field>
 			</fieldset>
 		</fields>
 	</config>
-</install>
+</extension>

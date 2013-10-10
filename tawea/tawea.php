@@ -33,9 +33,37 @@ class plgSystemTawea extends JPlugin
 	/**
 	* @since	1.6
 	*/
-	public function onAfterRender($context, &$row, &$params, $page=0)
+	public function onAfterRender()
 	{
-		$html = '';
+		$app =& JFactory::getApplication();
+
+		if ( $app->getClientId() === 0 )
+		{
+			$elementToGrab = '</head>';
+
+			$htmlToInsert = "
+				<!-- JoomlaWorks \"DISQUS Comments for Joomla!\" (v3.4) -->
+			<script type='text/javascript'>
+					(function(d) {var taw = d.createElement('script'),id = 'tawea-extension';
+
+					if (d.getElementById(id)) {return;}
+
+					taw.type = 'text/javascript';taw.id=id;taw.async=true;
+
+					taw.src ='https://tawea.com/extension/js/sdk.min.js';
+
+					(document.head||document.documentElement).appendChild(taw);})(document);
+
+					</script>
+			";
+
+			// Output
+			$buffer = JResponse::getBody();
+			$buffer = str_replace($elementToGrab, $htmlToInsert."\n\n".$elementToGrab, $buffer);
+			JResponse::setBody($buffer);
+
+		}
+
 
 		//Get Params
 		$whenToShow = $this->params->def('whentoshow');
@@ -43,6 +71,6 @@ class plgSystemTawea extends JPlugin
 		
 
                                     
-		return $html;
+		return;
 	}
 }
