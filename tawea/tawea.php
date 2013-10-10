@@ -2,7 +2,7 @@
 /**
  * @author       Carlos M. Cámara
  * @copyright    Copyright (C) 2013 Carlos M. Cámara Mora. All rights reserved.
- * @license      GNU General Public License version 2 or later; see LICENSE.txt
+ * @license - http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
  */
 
 // No direct access.
@@ -37,40 +37,53 @@ class plgSystemTawea extends JPlugin
 	{
 		$app =& JFactory::getApplication();
 
-		if ( $app->getClientId() === 0 )
-		{
-			$elementToGrab = '</head>';
-
-			$htmlToInsert = "
-				<!-- JoomlaWorks \"DISQUS Comments for Joomla!\" (v3.4) -->
-			<script type='text/javascript'>
-					(function(d) {var taw = d.createElement('script'),id = 'tawea-extension';
-
-					if (d.getElementById(id)) {return;}
-
-					taw.type = 'text/javascript';taw.id=id;taw.async=true;
-
-					taw.src ='https://tawea.com/extension/js/sdk.min.js';
-
-					(document.head||document.documentElement).appendChild(taw);})(document);
-
-					</script>
-			";
-
-			// Output
-			$buffer = JResponse::getBody();
-			$buffer = str_replace($elementToGrab, $htmlToInsert."\n\n".$elementToGrab, $buffer);
-			JResponse::setBody($buffer);
-
-		}
-
-
 		//Get Params
 		$whenToShow = $this->params->def('whentoshow');
 
-		
+		if ( $app->getClientId() === 0 )
+		{
+			switch ($whenToShow)
+			{
+				case 1:
+					$this->setCode();
+					break;
+				case 2:
+					$menu = $app->getMenu();
+					$lang = JFactory::getLanguage();
+					if ( $menu->getActive() == $menu->getDefault($lang->getTag()) )
+					{
+						$this->setCode();
+					}
+					break;
+			}		
 
+		}		
                                     
 		return;
+	}
+
+	public function setCode()
+	{
+		$elementToGrab = '</head>';
+
+		$htmlToInsert = "
+		<script type='text/javascript'>
+				(function(d) {var taw = d.createElement('script'),id = 'tawea-extension';
+
+				if (d.getElementById(id)) {return;}
+
+				taw.type = 'text/javascript';taw.id=id;taw.async=true;
+
+				taw.src ='https://tawea.com/extension/js/sdk.min.js';
+
+				(document.head||document.documentElement).appendChild(taw);})(document);
+
+				</script>
+		";
+
+		// Output
+		$buffer = JResponse::getBody();
+		$buffer = str_replace($elementToGrab, $htmlToInsert."\n\n".$elementToGrab, $buffer);
+		JResponse::setBody($buffer);
 	}
 }
