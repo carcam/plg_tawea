@@ -38,7 +38,7 @@ class plgSystemTawea extends JPlugin
 		$app =& JFactory::getApplication();
 
 		//Get Params
-		$whenToShow = $this->params->def('whentoshow');
+		$whenToShow = $this->params->get('whentoshow',1);
 
 		if ( $app->getClientId() === 0 )
 		{
