@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <extension version="2.5" type="plugin" group="system" method="upgrade">
-	<name>Tawea plugin</name>
+	<name>Tawea</name>
 	<author>Carlos M. Cámara Mora</author>
 	<creationDate>October 2013</creationDate>
 	<copyright>Copyright (C) 2013 Carlos M. Cámara Mora. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<authorEmail>carlos@hepta.es</authorEmail>
 	<authorUrl>www.hepta.es</authorUrl>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<description>PLG_SYSTEM_TAWEA_XML_DESCRIPTION</description>
 	<files>
 			<filename plugin="tawea">tawea.php</filename>
@@ -16,6 +16,8 @@
 	<languages folder="language">
 		<language tag="en-GB">en-GB/en-GB.plg_system_tawea.sys.ini</language>
 		<language tag="es-ES">es-ES/es-ES.plg_system_tawea.sys.ini</language>
+		<language tag="fr-FR">fr-FR/fr-FR.plg_system_tawea.sys.ini</language>
+		<language tag="nl-NL">nl-NL/nl-NL.plg_system_tawea.sys.ini</language>
 	</languages>
 	<config>
 		<fields name="params" >
